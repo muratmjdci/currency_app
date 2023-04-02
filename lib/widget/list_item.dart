@@ -6,17 +6,17 @@ part 'list_item.g.dart';
 
 @swidget
 Widget _listItem(text, {Function()? onTap, Widget? trailing}) {
-  return Padding(
-    padding: const EdgeInsets.all(DDimens.sm),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        InkWell(
-          onTap: onTap,
-          child: Text(text),
-        ),
-        if (trailing != null) trailing
-      ],
+  return InkWell(
+    onTap: onTap,
+    child: Padding(
+      padding: const EdgeInsets.all(DDimens.sm),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(text),
+          if (trailing != null) trailing,
+        ],
+      ),
     ),
   );
 }
