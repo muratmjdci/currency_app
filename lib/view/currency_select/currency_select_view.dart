@@ -25,18 +25,16 @@ Widget currencySelectView(void data) => ViewBuilder<CurrencySelectViewModel>(
           ),
           body: countries.isEmpty
               ? const Center(child: CircularProgressIndicator.adaptive())
-              : Expanded(
-                  child: ListView.separated(
-                    separatorBuilder: (_, __) => const Divider(thickness: 1.5),
-                    itemCount: countries.length,
-                    itemBuilder: (c, i) {
-                      final country = countries[i];
-                      return ListItem(
-                        country.name.common,
-                        onTap: () => Routes.currencyPage(data: country.currency),
-                      );
-                    },
-                  ),
+              : ListView.separated(
+                  separatorBuilder: (_, __) => const Divider(thickness: 1.5),
+                  itemCount: countries.length,
+                  itemBuilder: (c, i) {
+                    final country = countries[i];
+                    return ListItem(
+                      country.name.common,
+                      onTap: () => Routes.currencyPage(data: country.currency),
+                    );
+                  },
                 ),
         );
       },
