@@ -1,0 +1,10 @@
+name: page
+description: Generatates MVVM Flutter Page
+
+version: 1.0.0+1
+
+vars:
+  name:
+    type: string
+    description: View and package name
+    prompt: What is view name(w.o View)?

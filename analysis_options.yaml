@@ -1,0 +1,10 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/***.g.dart
+    - lib/*.config.dart
+    - lib/generated_plugin_registrant.dart
+    - lib/firebase_options.dart
+    - api/***.dart
+    - bricks

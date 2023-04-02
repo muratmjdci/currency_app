@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "username": "johnwick",
+            "name": "Keanu Reaves",
+            "age": 45,
+            "country": "TR",
+            "currency": "USD"
+        },
+        {
+            "id": 2,
+            "username": "flutter",
+            "name": "Flutter",
+            "age": 16,
+            "country": "TR",
+            "currency": "TRY"
+        }
+    ]
+}
