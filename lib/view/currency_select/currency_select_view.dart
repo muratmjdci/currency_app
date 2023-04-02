@@ -1,5 +1,6 @@
 import 'package:currency_app/resources/d_colors.dart';
 import 'package:currency_app/resources/dimens.dart';
+import 'package:currency_app/widget/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import '../../locator.dart';
@@ -30,12 +31,9 @@ Widget currencySelectView(void data) => ViewBuilder<CurrencySelectViewModel>(
                   itemCount: model.countries.value.length,
                   itemBuilder: (c, i) {
                     final country = model.countries.value[i];
-                    return InkWell(
+                    return ListItem(
+                      country.name.common,
                       onTap: () => Routes.currencyPage(data: country.currency),
-                      child: Padding(
-                        padding: const EdgeInsets.all(DDimens.sm),
-                        child: Text(country.name.common),
-                      ),
                     );
                   },
                 ),

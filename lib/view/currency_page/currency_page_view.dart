@@ -1,4 +1,5 @@
 import 'package:currency_app/resources/dimens.dart';
+import 'package:currency_app/widget/list_item.dart';
 import 'package:flutter/services.dart';
 
 import '../../locator.dart';
@@ -23,7 +24,7 @@ Widget currencyPageView(String currency) => ViewBuilder<CurrencyPageViewModel>(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(DDimens.sm),
                 child: Row(
                   children: [
                     Expanded(
@@ -44,12 +45,12 @@ Widget currencyPageView(String currency) => ViewBuilder<CurrencyPageViewModel>(
                 child: Builder(builder: (context) {
                   if (model.countries.value.isEmpty) return const Center(child: CircularProgressIndicator.adaptive());
                   return ListView.separated(
-                    separatorBuilder: (_, __) => const Divider(),
+                    separatorBuilder: (_, __) => const Divider(thickness: 1.5),
                     itemCount: model.countries.value.length,
                     itemBuilder: (c, i) {
                       final currency = model.countries.value[i];
-                      return ListTile(
-                        title: Text(currency.currencyCode),
+                      return ListItem(
+                        currency.currencyCode,
                         trailing: Text(model.amount.value.text.isEmpty
                             ? currency.rate.toStringAsFixed(2)
                             : currency.amount!.toStringAsFixed(2)),
