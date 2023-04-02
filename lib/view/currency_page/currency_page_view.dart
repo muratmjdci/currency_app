@@ -42,22 +42,20 @@ Widget currencyPageView(String currency) => ViewBuilder<CurrencyPageViewModel>(
                 ),
               ),
               Expanded(
-                child: Builder(builder: (context) {
-                  if (model.countries.value.isEmpty) return const Center(child: CircularProgressIndicator.adaptive());
-                  return ListView.separated(
-                    separatorBuilder: (_, __) => const Divider(thickness: 1.5),
-                    itemCount: model.countries.value.length,
-                    itemBuilder: (c, i) {
-                      final currency = model.countries.value[i];
-                      return ListItem(
-                        currency.currencyCode,
-                        trailing: Text(model.amount.value.text.isEmpty
-                            ? currency.rate.toStringAsFixed(2)
-                            : currency.amount!.toStringAsFixed(2)),
-                      );
-                    },
-                  );
-                }),
+                child: model.countries.value.isEmpty
+                    ? const Center(child: CircularProgressIndicator.adaptive())
+                    : ListView.separated(
+                        separatorBuilder: (_, __) => const Divider(thickness: 1.5),
+                        itemCount: model.countries.value.length,
+                        itemBuilder: (c, i) {
+                          final currency = model.countries.value[i];
+                          return ListItem(
+                            currency.currencyCode,
+                            trailing: Text(model.amount.value.text.isEmpty
+                                ? currency.rate.toStringAsFixed(2)
+                                : currency.amount!.toStringAsFixed(2)),
+                          );
+                        }),
               ),
             ],
           ),
