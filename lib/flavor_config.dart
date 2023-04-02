@@ -4,7 +4,7 @@ late final Flavor flavor;
 
 enum Flavor {
   dev(kDebugMode),
-  prod(!kDebugMode);
+  prod(kReleaseMode);
 
   final bool isRelease;
 
