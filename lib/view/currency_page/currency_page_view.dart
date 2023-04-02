@@ -64,9 +64,3 @@ Widget currencyPageView(String currency) => ViewBuilder<CurrencyPageViewModel>(
         ),
       ),
     );
-
-/*
-TODO add these to routes
-
-*/
-
